@@ -30,12 +30,74 @@
 
   /* RESET OVER */
 
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    --content-background: #f2f2f2;
+    --content-box-shadow: 0px 5px 6px -1px rgba(0,0,0,0.35);
+    --content-background-unfocus: #dedede;
+  }
+
   header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 45px;
+  }
 
+  button {
+    background-color: var(--content-background-unfocus);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 10px 10px 0px 0px;
+    position: relative;
+    width: 93px;
+    overflow: visible;
+  }
+
+  button::after {
+    content: "";
+  position: absolute;
+  
+  background-color: none;
+  bottom: -6.5px;
+  left: 99px;
+  height: 25px;
+  width: 12px;
+  border-top-left-radius: 25px;
+  box-shadow: 0 -12px 0 0 var(--content-background-unfocus); /* This is where the magic happens! */
+  transform: rotate(-90deg);
+  }
+
+  button::before {
+    content: "";
+    position: absolute;
+    
+    background-color: none;
+    bottom: -6.5px;
+    left: -18px;
+    height: 25px;
+    width: 12px;
+    border-top-left-radius: 25px;
+    box-shadow: 0 -12px 0 0 var(--content-background-unfocus); /* This is where the magic happens! */
+    transform: rotate(-90deg) scaleY(-1);
+  }
+
+  .focus {
+    background-color: var(--content-background);
+  }
+
+  .focus::before {
+    box-shadow: 0 -12px 0 0 var(--content-background);
+    z-index: 10;
+  }
+
+  .focus::after {
+    box-shadow: 0 -12px 0 0 var(--content-background);
+    z-index: 10;
   }
 
   .logo {
@@ -44,4 +106,28 @@
     position: fixed;
     left: 40px;
     top: 50px;
+  }
+
+  #content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    background-color: var(--content-background);
+    box-shadow: var(--content-box-shadow);
+    padding: 35px;
+    border-radius: 10px;
+  }
+
+  .headshot {
+    max-width: 300px;
+    border-radius: 50%;
+  }
+
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
   }
