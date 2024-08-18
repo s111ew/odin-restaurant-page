@@ -3,10 +3,6 @@ import { paintHome } from "./home.js"
 import { paintMenu } from "./menu.js"
 import { paintTeam } from "./team.js"
 import { paintContact } from "./about.js"
-import "./images/DreaHeadshot.jpg"
-import "./images/BuccoHeadshot.jpg"
-import "./images/CharmaineHeadshot.jpg"
-import "./images/FurioHeadshot.jpeg"
 
 function unpaintContent() {
     const mainContent = document.querySelector('#content');
@@ -23,6 +19,7 @@ function addTabListeners() {
                     unpaintContent();
                     paintHome();
                     button.classList.add("selected");
+                    focusButtons(button.id);
                 })
                 break;
             case "menu":
@@ -30,6 +27,7 @@ function addTabListeners() {
                     unpaintContent();
                     paintMenu();
                     button.classList.add("selected");
+                    focusButtons(button.id);
                 })
                 break;
             case "team":
@@ -37,6 +35,7 @@ function addTabListeners() {
                     unpaintContent();
                     paintTeam();
                     button.classList.add("selected");
+                    focusButtons(button.id);
                 })
                 break;
             case "contact":
@@ -44,8 +43,21 @@ function addTabListeners() {
                     unpaintContent();
                     paintContact();
                     button.classList.add("selected");
+                    focusButtons(button.id);
                 })
                 break;
+        }
+    })
+}
+
+function focusButtons (id) {
+    const buttons = document.querySelectorAll(".button");
+    buttons.forEach(button => {
+        if (button.classList.contains("selected")) {
+            button.classList.remove("selected")
+        }
+        if (button.id === id) {
+            button.classList.add("selected");
         }
     })
 }

@@ -1,3 +1,8 @@
+import dreaHeadshot from "./images/DreaHeadshot.jpg"
+import buccoHeadshot from "./images/BuccoHeadshot.jpg"
+import charmaineHeadshot from "./images/CharmaineHeadshot.jpg"
+import furioHeadshot from "./images/FurioHeadshot.jpeg"
+
 export const paintTeam = () => {
     const mainContent = document.querySelector("#content");
 
@@ -33,10 +38,10 @@ export const paintTeam = () => {
     }
 
     const teamItems = [
-        { image: "./images/BuccoHeadshot.jpg", name: "Artie Bucco", job: "Head Chef" },
-        { image: "./images/CharmaineHeadshot.jpg", name: "Charmaine Bucco", job: "Maître d'" },
-        { image: "./images/DreaHeadshot.jpg", name: "Adriana La Cerva", job: "Server" },
-        { image: "./images/FurioHeadshot.jpeg", name: "Furio Giunta", job: "Cheese Specialist" },
+        { image: buccoHeadshot, name: "Artie Bucco", job: "Head Chef" },
+        { image: charmaineHeadshot, name: "Charmaine Bucco", job: "Maître d'" },
+        { image: dreaHeadshot, name: "Adriana La Cerva", job: "Server" },
+        { image: furioHeadshot, name: "Furio Giunta", job: "Cheese Specialist" },
     ];
 
     teamItems.forEach(item => {
