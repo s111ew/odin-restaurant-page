@@ -1,10 +1,10 @@
-function paintMenu() {
+export const paintMenu = () => {
     const mainContent = document.querySelector("#content");
 
     const menuContainer = document.createElement("div");
     menuContainer.classList.add("menu-container");
     const menuHeader = document.createElement("h2");
-    menuHeader.textContent = "Check out our tasty dishes...";
+    menuHeader.textContent = "Check out our tasty dishes:";
     menuContainer.appendChild(menuHeader);
 
     const menuGrid = document.createElement("div");
@@ -16,10 +16,12 @@ function paintMenu() {
         menuItem.id = id;
 
         const menuItemImage = document.createElement("span");
+        menuItemImage.classList.add("menu-image")
         menuItemImage.textContent = emoji;
 
         const menuItemSpan = document.createElement("span");
         menuItemSpan.textContent = name;
+        menuItemSpan.classList.add("menu-span")
 
         menuItem.appendChild(menuItemImage);
         menuItem.appendChild(menuItemSpan);

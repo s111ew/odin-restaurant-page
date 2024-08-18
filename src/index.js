@@ -1,6 +1,6 @@
 import "./style.css"
-import headShot from "./images/BuccoHeadshot.jpg"
-// import paintMenu from "./menu.js"
+import { paintMenu } from "./menu.js"
+import { paintTeam } from "./team.js"
 // import paintTeam from "./team.js"
 // import paintAbout from "./about.js"
 
@@ -29,7 +29,7 @@ function paintHome() {
           setting. Buon appetito! 🍽️`;
 
     const headerContainer = document.createElement("div");
-    headerContainer.classList.add("menu-header-container")
+    headerContainer.classList.add("home-header-container")
 
     headerContainer.appendChild(homeHeader);
     headerContainer.appendChild(homeHeaderSpan);
@@ -53,4 +53,44 @@ function unpaintContent() {
 
 // }
 
-window.onload = paintHome()
+function addTabListeners() {
+    const buttons = document.querySelectorAll(".button");
+
+    buttons.forEach(button => {
+        switch (button.id) {
+            case "home":
+                button.addEventListener("click", () => {
+                    unpaintContent();
+                    paintHome();
+                    button.classList.add("selected");
+                })
+                break;
+            case "menu":
+                button.addEventListener("click", () => {
+                    unpaintContent();
+                    paintMenu();
+                    button.classList.add("selected");
+                })
+                break;
+            case "team":
+                button.addEventListener("click", () => {
+                    unpaintContent();
+                    paintTeam();
+                    button.classList.add("selected");
+                })
+                break;
+            case "about":
+                button.addEventListener("click", () => {
+                    unpaintContent();
+                    paintAbout();
+                    button.classList.add("selected");
+                })
+                break;
+        }
+    })
+}
+
+window.onload = function() {
+    paintHome();
+    addTabListeners();
+}
