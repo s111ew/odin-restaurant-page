@@ -1,7 +1,7 @@
 import "./style.css"
 import { paintMenu } from "./menu.js"
 import { paintTeam } from "./team.js"
-// import paintAbout from "./about.js"
+import { paintContact } from "./about.js"
 import "./images/DreaHeadshot.jpg"
 import "./images/BuccoHeadshot.jpg"
 import "./images/CharmaineHeadshot.jpg"
@@ -82,10 +82,10 @@ function addTabListeners() {
                     button.classList.add("selected");
                 })
                 break;
-            case "about":
+            case "contact":
                 button.addEventListener("click", () => {
                     unpaintContent();
-                    paintAbout();
+                    paintContact();
                     button.classList.add("selected");
                 })
                 break;
