@@ -1,5 +1,8 @@
-import './style.css'
-import headShot from './images/BuccoHeadshot.jpg'
+import "./style.css"
+import headShot from "./images/BuccoHeadshot.jpg"
+// import paintMenu from "./menu.js"
+// import paintTeam from "./team.js"
+// import paintAbout from "./about.js"
 
 //window on load => paint Home page, home page tab = focussed,
 //                  add event listeners to tabs,
@@ -7,27 +10,47 @@ import headShot from './images/BuccoHeadshot.jpg'
 //on tab click => unpaint #content, paint content related to tab
 
 function paintHome() {
-    const mainContent = document.querySelector('#content');
-    const contentContainer = document.createElement('div');
-    contentContainer.classList.add('content-container');
-    
-    const headshotImage = document.createElement('img');
-    headshotImage.classList.add('headshot');
-    headshotImage.src = headShot;
-    headshotImage.alt = 'Headshot of the head chef';
+    const mainContent = document.querySelector("#content");
+    const homeContainer = document.createElement("div");
+    homeContainer.classList.add("home-container");
 
-    const homeSpan = document.createElement('span');
-    homeSpan.textContent = `Welcome to Nuovo Vesuvio (formerly Vesuvio), your go-to spot for
-          authentic Italian cuisine in North Jersey. Led by Head Chef Artie
-          Bucco, we have been serving classic Italian dishes with a modern twist
-          since 1999. Whether it's homemade pasta, fresh seafood, or a juicy
-          steak, Nuovo Vesuvio offers a true taste of Italy in a cozy, welcoming
-          setting. Buon appetito!`
+    const homeHeader = document.createElement("h2");
+    homeHeader.textContent = "Welcome to Nuovo Vesuvio!";
 
-    contentContainer.appendChild(headshotImage);
-    contentContainer.appendChild(homeSpan);
+    const homeHeaderSpan = document.createElement("h3");
+    homeHeaderSpan.textContent = "(formerly Vesuvio)";
+
+    const homePara = document.createElement("p");
+    homePara.textContent = `Your go-to spot for
+          authentic Italian cuisine in North Jersey 🇮🇹. Led by Head Chef Artie
+          Bucco 👨‍🍳, we have been serving classic Italian dishes with a modern twist
+          since 1999. Whether it's homemade pasta 🍝, fresh seafood 🍤, or a juicy
+          steak 🥩, Nuovo Vesuvio offers a true taste of Italy in a cozy, welcoming
+          setting. Buon appetito! 🍽️`;
+
+    const headerContainer = document.createElement("div");
+    headerContainer.classList.add("menu-header-container")
+
+    headerContainer.appendChild(homeHeader);
+    headerContainer.appendChild(homeHeaderSpan);
+
+    homeContainer.appendChild(headerContainer);
+    homeContainer.appendChild(homePara);
     
-    mainContent.appendChild(contentContainer);
+    mainContent.appendChild(homeContainer);
 }
+
+function unpaintContent() {
+    const mainContent = document.querySelector('#content');
+    mainContent.innerHTML = '';
+}
+
+// function addTabListeners() {
+//     const homeButton = document.querySelector('#home');
+//     const menuButton = document.querySelector('#menu');
+//     const teamButton = document.querySelector('#team');
+//     const aboutButton = document.querySelector('#about');
+
+// }
 
 window.onload = paintHome()
