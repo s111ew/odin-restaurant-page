@@ -1,8 +1,11 @@
 import "./style.css"
 import { paintMenu } from "./menu.js"
 import { paintTeam } from "./team.js"
-// import paintTeam from "./team.js"
 // import paintAbout from "./about.js"
+import "./images/DreaHeadshot.jpg"
+import "./images/BuccoHeadshot.jpg"
+import "./images/CharmaineHeadshot.jpg"
+import "./images/FurioHeadshot.jpeg"
 
 //window on load => paint Home page, home page tab = focussed,
 //                  add event listeners to tabs,
