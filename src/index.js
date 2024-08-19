@@ -62,7 +62,17 @@ function focusButtons (id) {
     })
 }
 
+function addLogoEventListener () {
+    const logo = document.querySelector(".logo-image");
+
+    logo.addEventListener("click", () => {
+        unpaintContent();
+        paintHome();
+    })
+}
+
 window.onload = function() {
     paintHome();
     addTabListeners();
+    addLogoEventListener();
 }
